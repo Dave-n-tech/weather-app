@@ -10,8 +10,8 @@ const forecastBox = document.querySelector(".forecast-box")
 
 // declaring variables for api url
 const apiKey = "a6ae423049c54e2aaef104942232609";
-const apiUrl = "http://api.weatherapi.com/v1/current.json?";
-const forecastUrl = "http://api.weatherapi.com/v1/forecast.json?";
+const apiUrl = "https://api.weatherapi.com/v1/current.json?";
+const forecastUrl = "https://api.weatherapi.com/v1/forecast.json?";
 
 
 // function to generate the forecast cards
