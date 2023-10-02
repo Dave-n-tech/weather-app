@@ -108,6 +108,7 @@ h1{
     font-size: 1.5rem;
     margin: 5px 0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: right;
 }
 /* forecast section*/
 .forecast-title{
@@ -158,8 +159,19 @@ ul .cards{
     .main-weather{
         display: flex;
         flex-direction: column-reverse;
+        min-height: fit-content;
     }
     .main-weather .icon{
+        text-align: left;
+        width: 100%;
+        padding: 20px 20px;
+    }
+    .main-weather .weather-details{
+        width: 100%;
+        padding: 16px 20px;
+        text-align: left;
+    }
+    .icon__description{
         text-align: left;
     }
 }

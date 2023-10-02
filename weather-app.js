@@ -68,6 +68,9 @@ const getForecast = async (city) => {
 // function to get the city input value and call the current and forecast weather functions
 const generateWeather = (error) => {
   error.preventDefault;
+  if(input.value.length === 0){
+    alert("please enter a city name")
+  }
   const city = input.value;
   getWeather(city);
   input.value = "";
