@@ -76,5 +76,11 @@ const generateWeather = (error) => {
 
 // event listener on button to call the generate weather function
 button.addEventListener("click", generateWeather);
+/*
+input.addEventListener("keypress", (e)=> {
 
-//input.addEventListener("keyup", e => e.key === "Enter" && generateWeather())
+  if(e.key === 'Enter'){
+    generateWeather()
+    input.value = ""
+  }
+})*/

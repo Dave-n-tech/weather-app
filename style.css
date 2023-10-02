@@ -58,6 +58,14 @@ h1{
     border-radius: 10px;
     cursor: pointer;
 }
+#search-button:hover{
+    background-color: white;
+    color: var(--green-color);
+    border: 2px solid var(--green-color);
+}
+#search-button:active{
+    transform: translate(-2px, 2px);
+}
 /* weather display*/
 .main-weather{
     background: var(--gradient);
@@ -93,7 +101,8 @@ h1{
     padding: 25px 35px 0 0;
 }
 .main-icon{
-    width: calc(100% * 2);
+    max-width: 100%;
+    opacity: 0.1;
 }
 .icon__description{
     font-size: 1.5rem;
@@ -149,5 +158,8 @@ ul .cards{
     .main-weather{
         display: flex;
         flex-direction: column-reverse;
+    }
+    .main-weather .icon{
+        text-align: left;
     }
 }
