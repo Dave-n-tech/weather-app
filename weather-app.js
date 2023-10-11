@@ -59,12 +59,13 @@ const getWeather = async (city) => {
 const getForecast = async (city) => {
   try{
     const response = await fetch(
-      forecastUrl + `key=${apiKey}&q=${city}&aqi=yes&days=5`
+      forecastUrl + `key=${apiKey}&q=${city}&aqi=yes&days=3`
     );
     let data = await response.json();
     // selecting only the forecast days
     let threeDayForecast = data.forecast.forecastday;
     console.log(threeDayForecast);
+    console.log(data.forecast)
     //clearing the forecast container
     forecastBox.innerHTML = "";
     // looping through the forecast days and creating a card display for each of them
