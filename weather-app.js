@@ -1,6 +1,7 @@
 // accessing the html elements using their selectors
 const input = document.querySelector("#input");
 const button = document.querySelector("#search-button");
+const locationButton = document.querySelector(".location-button")
 const cityName = document.querySelector(".city-name");
 const presentDate = document.querySelector("#date");
 const description = document.querySelector(".icon__description");
@@ -91,8 +92,20 @@ const generateWeather = (event) => {
   }
 };
 
+const getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+        position => {
+          console.log(position)
+        },
+        error => {
+          console.log(error)
+        }
+      )
+}
+
 // event listener on button to call the generate weather function
 button.addEventListener("click", generateWeather);
+locationButton.addEventListener("click", getUserLocation);
 
 input.addEventListener("keypress", (e)=> {
 
@@ -101,3 +114,4 @@ input.addEventListener("keypress", (e)=> {
     input.value = ""
   }
 })
+

@@ -47,6 +47,22 @@ h1{
     border: 1px solid var(--green-color);
     margin: 10px 0px;
 }
+#btn-divider{
+    height: 1px;
+    width: 100%;
+    background: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+#btn-divider::before{
+  content: "or";
+  color: green;
+  font-size: 1.18rem;
+  padding: 0 15px;
+  background: white;
+}
 #search-button{
     width: 120px;
     height: 30px;
