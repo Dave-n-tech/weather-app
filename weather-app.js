@@ -36,8 +36,7 @@ const getWeather = async (city) => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data)
-  
+
     cityName.textContent = data.location.name;
     presentDate.textContent = data.location.localtime.slice(0, 11);
     
@@ -65,8 +64,7 @@ const getForecast = async (city) => {
     let data = await response.json();
     // selecting only the forecast days
     let threeDayForecast = data.forecast.forecastday;
-    console.log(threeDayForecast);
-    console.log(data.forecast)
+
     //clearing the forecast container
     forecastBox.innerHTML = "";
     // looping through the forecast days and creating a card display for each of them
@@ -95,10 +93,23 @@ const generateWeather = (event) => {
 const getUserLocation = () => {
     navigator.geolocation.getCurrentPosition(
         position => {
-          console.log(position)
+          const {latitude, longitude} = position.coords;
+          const reverseApiKey = "d3d5b3f566050494d088fc61dfe0b585"
+          const REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${reverseApiKey}`;
+          fetch(REVERSE_GEOCODING_URL)
+          .then(response => response.json())
+          .then(data => {
+            getWeather(data[0].name)
+            getForecast(data[0].name)
+          })
+          .catch((error) => {
+              console.log(error)
+          })
         },
         error => {
-          console.log(error)
+          if(error.code === error.PERMISSION_DENIED){
+            alert("Geolocation request denied, Please reset location permission to grant access again.");
+          }
         }
       )
 }
